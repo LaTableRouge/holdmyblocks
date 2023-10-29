@@ -1,0 +1,63 @@
+// Img
+$pictures-path: '../img';
+
+//Fonts
+$fonts-path: '../fonts';
+$icomoon-font-path: '#{$fonts-path}/icomoon/fonts';
+// Inside a modern Wordpress theme, text fonts are defined in the theme.json file. Use the css variables instead
+$fonts: ();
+
+// Font-sizes must be converted to rem, use function calculateRem or min-max-interpolation
+// Inside a modern Wordpress theme, font sizes are defined in the theme.json file. Use the css variables instead
+// - The base max breakpoint is 1600px and the min is 768px (defined by Wordpress)
+$font-sizes: ();
+
+// Colors must be named in kebab case based on this : https://colornamer.robertcooper.me/
+$colors: (
+  'white': #fff,
+  'black': #000,
+  'info': #17a2b8,
+  'success': #28a745,
+  'error': #dc3545,
+  'warning': #ffc107,
+  'midnight-navy': #374151,
+  'satire': #c4c4cd,
+  'gram-hair': #f5f6f7,
+  'acf': #00e4bc,
+  'react': #61dafb
+);
+
+$spacings: (
+  base: calculate-rem(30)
+);
+
+// Custom sizes (like the header height for example)
+$sizes: ();
+
+// Wordpress breakpoints are not to be edited saldy...
+// Here's some that I found in the code :
+//  - 600px
+//  - 782px
+//  - 960px
+//  - 1280px
+// Theses under are basic ones for more flexible responsive design
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+  fhd: 1920px
+);
+
+// Wordpress container max widths are defined in the theme.json in the settings.layout section
+// Theses under are basic ones for more flexible responsive design
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  fhd: 1440px
+);

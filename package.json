@@ -1,0 +1,93 @@
+{
+  "name": "holdmyblocks",
+  "version": "0.0.1",
+  "description": "## VHosts",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:plugin": "mix",
+    "watch:plugin": "mix watch",
+    "prod:plugin": "mix --production",
+    "build:plugin": "npm run prod:plugin --chore=all --state=build && npm run dev:plugin --state=build",
+    "start:react-blocks": "wp-scripts start --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
+    "build:react-blocks": "wp-scripts build --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
+    "start:acf-blocks": "wp-scripts start --webpack-src-dir=components/blocks/acf/src --output-path=components/blocks/acf/build --webpack-copy-php",
+    "build:acf-blocks": "wp-scripts build --webpack-src-dir=components/blocks/acf/src --output-path=components/blocks/acf/build --webpack-copy-php",
+    "plugin-zip": "wp-scripts plugin-zip"
+  },
+  "files": [
+    "!webpack.mix.js",
+    "holdmyblocks.php",
+    "lang/",
+    "build/",
+    "includes/",
+    "templates/",
+    "components/blocks/acf/build/",
+    "components/blocks/react/build/"
+  ],
+  "lint-staged": {
+    "assets/scss/**/*.scss": [
+      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix",
+      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
+      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix"
+    ],
+    "components/blocks/**/src/**/*.scss": [
+      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix",
+      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
+      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix"
+    ],
+    "assets/js/**/*.js": [
+      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
+      "npx eslint --config .eslintrc.js --no-error-on-unmatched-pattern --ignore-path .eslintignore --fix"
+    ],
+    "components/blocks/**/src/**/*.js": [
+      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
+      "npx eslint --config .eslintrc.js --no-error-on-unmatched-pattern --ignore-path .eslintignore --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@wordpress/dom-ready": "^3.42.0",
+    "@wordpress/scripts": "^26.13.0",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "browserslist": "^4.22.1",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "git-precommit-checks": "^3.1.0",
+    "husky": "^8.0.3",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-replace-in-file": "^0.1.0",
+    "laravel-mix-webp": "^0.1.3",
+    "lint-staged": "^14.0.1",
+    "node-css-mqpacker": "^9.0.0",
+    "prettier": "^3.0.3",
+    "replace-in-file": "^7.0.1",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2",
+    "standard": "^17.1.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
+    "validate-branch-name": "^1.3.0",
+    "webpack-shell-plugin-next": "^2.3.1"
+  },
+  "keywords": [],
+  "author": "VDIANA DEV",
+  "license": "(╯°□°）╯︵ ┻━┻",
+  "dependencies": {
+    "notyf": "^3.10.0",
+    "swiper": "^10.1.0"
+  }
+}

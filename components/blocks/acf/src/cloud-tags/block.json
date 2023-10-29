@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "hmb/cloud-tags",
+  "title": "Nuage d'étiquettes",
+  "description": "Un bloc ACF qui affiche des étiquettes personnalisées par ordre d'importance.",
+  "category": "hmb-blocks",
+  "icon": "",
+  "keywords": [
+    "hmb",
+    "nuage",
+    "étiquettes"
+  ],
+  "textdomain": "hmb-blocks",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "./includes/template.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "viewScript": "file:./assets/view.js",
+  "editorScript": "file:./assets/editor.js",
+  "editorStyle": "file:./assets/editor.css",
+  "style": "file:./assets/style-view.css"
+}

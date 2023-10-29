@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "hmb/modal",
+  "version": "0.1.0",
+  "title": "Modale",
+  "category": "hmb-blocks",
+  "icon": "block-default",
+  "description": "Un bloc qui permet d'afficher une modale.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string"
+    },
+    "overlay-background-color": {
+      "type": "string",
+      "default": "#000"
+    },
+    "close-button-background-color": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "close-button-border-color": {
+      "type": "string",
+      "default": "#000"
+    },
+    "close-button-color": {
+      "type": "string",
+      "default": "#000"
+    },
+    "close-button-size": {
+      "type": "string",
+      "default": "45px"
+    },
+    "close-button-padding": {
+      "type": "string",
+      "default": "8px"
+    },
+    "background-color": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "max-width": {
+      "type": "string",
+      "default": "70%"
+    },
+    "open-auto": {
+      "type": "boolean",
+      "default": true
+    },
+    "open-selector": {
+      "type": "string",
+      "default": ""
+    },
+    "breakpointsEnable": {
+      "type": "boolean",
+      "default": false
+    },
+    "breakpoints": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "hmb-blocks",
+  "keywords": [
+    "hmb",
+    "modale"
+  ],
+  "viewScript": "file:./assets/view.js",
+  "editorScript": "file:./assets/index.jsx",
+  "editorStyle": "file:./assets/index.css",
+  "style": "file:./assets/style-index.css"
+}

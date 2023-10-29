@@ -1,0 +1,26 @@
+.hmb-blocks__form {
+  display: grid;
+  grid-template-columns: repeat(var(--column-number, 1), 1fr);
+  gap: var(--spacing-base);
+
+  @include container-breakpoint-up(hmb-blocks, sm) {
+    --column-number: 2;
+  }
+
+  @include container-breakpoint-up(hmb-blocks, lg) {
+    --column-number: 3;
+  }
+
+  @include container-breakpoint-up(hmb-blocks, xl) {
+    --column-number: 4;
+  }
+
+  @include container-breakpoint-up(hmb-blocks, fhd) {
+    --column-number: 5;
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    filter: grayscale(200%);
+  }
+}

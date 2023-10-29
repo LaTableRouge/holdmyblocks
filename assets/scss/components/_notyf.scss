@@ -1,0 +1,408 @@
+// https://github.com/caroso1222/notyf/blob/master/src/notyf.scss
+@keyframes notyf-fadeinup {
+  0% {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes notyf-fadeinleft {
+  0% {
+    transform: translateX(25%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes notyf-fadeoutright {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(25%);
+    opacity: 0;
+  }
+}
+
+@keyframes notyf-fadeoutdown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0) translateY(-45%) translateX(13%);
+  }
+
+  100% {
+    transform: scale(1) translateY(-45%) translateX(13%);
+  }
+}
+
+$toast-padding: 15px;
+
+.notyf {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+  pointer-events: none;
+
+  &__icon {
+    &--error,
+    &--success {
+      display: block;
+      position: relative;
+      width: 21px;
+      height: 21px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: white;
+    }
+
+    &--error {
+      &::after,
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 9px;
+        width: 3px;
+        height: 12px;
+        border-radius: 3px;
+        background: currentColor;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+    }
+
+    &--success {
+      &::after,
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 3px;
+        border-radius: 3px;
+        background: currentColor;
+      }
+
+      &::after {
+        top: 9px;
+        left: 6px;
+        height: 6px;
+        transform: rotate(-45deg);
+      }
+
+      &::before {
+        top: 5px;
+        left: 10px;
+        height: 11px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__toast {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    max-width: 300px;
+    padding: 0 $toast-padding;
+    overflow: hidden;
+    transform: translateY(25%);
+    animation: notyf-fadeinup 0.3s ease-in forwards;
+    border-radius: 2px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+    pointer-events: auto;
+
+    &--disappear {
+      transform: translateY(0);
+      animation: notyf-fadeoutdown 0.3s forwards;
+      animation-delay: 0.25s;
+
+      .notyf {
+        &__message,
+        &__icon {
+          transform: translateY(0);
+          animation: notyf-fadeoutdown 0.3s forwards;
+          opacity: 1;
+        }
+
+        &__dismiss {
+          transform: translateX(0);
+          animation: notyf-fadeoutright 0.3s forwards;
+          opacity: 1;
+        }
+      }
+
+      .notyf__message {
+        animation-delay: 0.05s;
+      }
+    }
+
+    &--upper {
+      margin-bottom: 20px;
+    }
+
+    &--lower {
+      margin-top: 20px;
+    }
+
+    &--dismissible {
+      .notyf__wrapper {
+        padding-right: 30px;
+      }
+    }
+  }
+
+  &__ripple {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    transform: scale(0) translateY(-51%) translateX(13%);
+    transform-origin: bottom right;
+    animation: ripple 0.4s ease-out forwards;
+    border-radius: 50%;
+  }
+
+  &__wrapper {
+    display: flex;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    padding-top: 17px;
+    padding-right: 15px;
+    padding-bottom: 17px;
+    border-radius: 3px;
+  }
+
+  &__icon {
+    width: 22px;
+    margin-right: 13px;
+    animation: notyf-fadeinup 0.3s forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  &__dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 100%;
+    margin-right: -$toast-padding;
+    animation: notyf-fadeinleft 0.3s forwards;
+    animation-delay: 0.35s;
+    opacity: 0;
+  }
+
+  &__dismiss-btn {
+    width: 100%;
+    height: 100%;
+    transition:
+      opacity 0.2s ease,
+      background-color 0.2s ease;
+    border: none;
+    outline: none;
+    opacity: 0.35;
+    background-color: rgba(#000, 0.25);
+    cursor: pointer;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 5px);
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 12px;
+      border-radius: 3px;
+      background: white;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      opacity: 0.7;
+      background-color: rgba(#000, 0.15);
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &__message {
+    position: relative;
+    animation: notyf-fadeinup 0.3s forwards;
+    animation-delay: 0.25s;
+    opacity: 0;
+    line-height: 1.5em;
+    vertical-align: middle;
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 480px) {
+  .notyf {
+    padding: 0;
+
+    &__ripple {
+      width: 600px;
+      height: 600px;
+      animation-duration: 0.5s;
+    }
+
+    &__toast {
+      width: 100%;
+      max-width: initial;
+      border-radius: 0;
+      box-shadow: 0 -2px 7px 0 rgba(0, 0, 0, 0.13);
+    }
+
+    &__dismiss {
+      width: 56px;
+    }
+  }
+}
+
+// Surcharge
+.notyf {
+  &__toast--info {
+    --bg-color: var(--color-info);
+    --bg-color-rgb: var(--color-rgb-info);
+    --icon: '#{$icon-info}';
+  }
+
+  &__toast--warning {
+    --bg-color: var(--color-warning);
+    --bg-color-rgb: var(--color-rgb-warning);
+    --icon: '#{$icon-warning}';
+  }
+
+  &__toast--error {
+    --bg-color: var(--color-error);
+    --bg-color-rgb: var(--color-rgb-error);
+    --icon: '#{$icon-error}';
+  }
+
+  &__toast--success {
+    --bg-color: var(--color-success);
+    --bg-color-rgb: var(--color-rgb-success);
+    --icon: '#{$icon-success}';
+  }
+
+  &__toast {
+    display: flex;
+    max-width: fit-content;
+    padding: 0;
+    border-left: 7px solid var(--bg-color);
+    border-radius: 5px;
+    background-color: var(--color-white) !important;
+    box-shadow: none;
+
+    .notyf__wrapper {
+      display: grid;
+      grid-auto-flow: column;
+      width: 100%;
+      padding: calc(var(--spacing-base) / 2) calc(var(--spacing-base) * 2) calc(var(--spacing-base) / 2) 0;
+      background-color: rgba(var(--bg-color-rgb), 0.25);
+      color: var(--color-black);
+      font-size: 14px;
+
+      .notyf__icon {
+        --icon-size: 24px;
+
+        margin-right: calc(var(--spacing-base) / 2);
+        margin-left: calc(var(--spacing-base) / 2);
+
+        span {
+          display: block;
+          position: relative;
+          width: var(--icon-size);
+          height: var(--icon-size);
+          border-radius: 50%;
+
+          &::before {
+            content: var(--icon);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--bg-color);
+            font-family: $icomoon-font-family;
+            font-size: var(--icon-size);
+          }
+        }
+      }
+
+      .notyf__message {
+        p {
+          margin: 0;
+        }
+      }
+
+      .notyf__dismiss {
+        right: calc(var(--spacing-base) / 3);
+        margin-right: 0;
+
+        &-btn {
+          opacity: 1;
+          background: none;
+
+          &::before,
+          &::after {
+            background-color: var(--color-black);
+          }
+        }
+      }
+    }
+  }
+}

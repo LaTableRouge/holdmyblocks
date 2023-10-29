@@ -1,0 +1,33 @@
+:root {
+  @each $color, $value in $colors {
+    --color-#{$color}: #{$value};
+    --color-rgb-#{$color}: #{hex-to-rgb($value)};
+    // --color-hsl-#{$color}: #{hex-to-hsl($value)};
+  }
+
+  @each $spacing, $value in $spacings {
+    --spacing-#{$spacing}: #{$value};
+  }
+
+  @each $font-title, $font-info in $fonts {
+    $font-name: map-get($font-info, 'name');
+    $font-serif: map-get($font-info, 'serif');
+    @if $font-serif {
+      --font-#{$font-title}: #{$font-name}, #{$font-serif};
+    } @else {
+      --font-#{$font-title}: #{$font-name};
+    }
+  }
+
+  @each $size, $value in $font-sizes {
+    --font-level-#{$size}: #{$value};
+  }
+
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    --nomotion: none;
+  }
+}

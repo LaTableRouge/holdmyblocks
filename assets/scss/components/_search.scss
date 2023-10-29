@@ -1,0 +1,120 @@
+.hmb-blocks__search {
+  margin-bottom: calc(var(--spacing-base) * 2);
+  transform: translateY(-50%);
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    border-radius: 32px;
+    background-color: var(--color-white);
+    box-shadow: 0 6px 25px 0 hsla(210, 8%, 42%, 0.15);
+
+    --filter-size: 40px;
+    --separator-color: rgba(var(--color-rgb-black), 0.4);
+
+    &__search-input {
+      flex-grow: 1;
+      min-width: 250px;
+    }
+
+    &__filters {
+      display: grid;
+      position: relative;
+      grid-template-columns: repeat(2, auto);
+      height: 100%;
+      border-right: 1px solid var(--separator-color);
+      border-left: 1px solid var(--separator-color);
+
+      .filters__filter {
+        display: grid;
+        position: relative;
+        width: var(--filter-size);
+        height: 100%;
+        margin: 0;
+        transition:
+          background-color 0.2s ease-in-out,
+          color 0.2s ease-in-out;
+        border: none;
+        border-radius: 0;
+        background-color: var(--color-white);
+        box-shadow: none;
+        cursor: pointer;
+        appearance: none;
+        place-items: center;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+
+        &::before {
+          content: none;
+        }
+
+        &::after {
+          color: inherit;
+          font-family: $icomoon-font-family;
+          font-size: 18px;
+        }
+
+        &:checked,
+        &:hover {
+          background-color: rgba(var(--color-rgb-black), 0.1);
+        }
+
+        & + .filters__filter {
+          border-left: 1px solid var(--separator-color);
+        }
+
+        &--acf {
+          &:checked {
+            color: var(--color-acf);
+          }
+
+          &::after {
+            content: $icon-acf;
+          }
+        }
+
+        &--react {
+          &:checked {
+            color: var(--color-react);
+          }
+
+          &::after {
+            content: $icon-react;
+          }
+        }
+      }
+    }
+
+    [type='submit'] {
+      display: block;
+      width: 50px;
+      height: 100%;
+      padding: 0;
+      padding: 0;
+      border: none;
+      background-color: var(--color-white);
+      font-size: 16px;
+      cursor: pointer;
+      aspect-ratio: 1;
+
+      span {
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      &:hover {
+        span {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

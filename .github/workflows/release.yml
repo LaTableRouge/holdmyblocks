@@ -1,0 +1,39 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-zip-upload:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_NAME: 'holdmyblocks'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+        # Compile le plugin
+      - name: Compile CSS and Javascript
+        run: |
+          npm ci
+          npm run prod:plugin && npm run build:acf-blocks && npm run build:react-blocks
+
+      # Zip le plugin dans une release clean de tout fichiers inutiles
+      - name: Zip release
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: 'zip'
+          filename: '${RELEASE_NAME}.zip'
+          path: 'holdmyblocks.php lang/ build/ includes/ templates/ components/blocks/acf/build/ components/blocks/react/build/'
+
+      # Publie la release
+      - name: Publish release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: '${RELEASE_NAME}.zip'

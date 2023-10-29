@@ -1,0 +1,10 @@
+& {
+  container-type: inline-size;
+  container-name: hmb-blocks;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}

@@ -1,0 +1,609 @@
+# Copyright (C) 2023 The WordPress Contributors & Glanum Front-end team
+# This file is distributed under the same license as the Highfive Blocs plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Highfive Blocs 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/highfive-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-10-06T13:13:31+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: highfive-blocks\n"
+
+#. Plugin Name of the plugin
+msgid "Highfive Blocs"
+msgstr ""
+
+#. Description of the plugin
+msgid "Ensemble de blocs développés par l'équipe Front-end Glanum"
+msgstr ""
+
+#. Author of the plugin
+msgid "The WordPress Contributors & Glanum Front-end team"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.glanum.com/"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/includes/fields.php:6
+#: components/blocks/acf/src/cloud-tags/includes/fields.php:6
+msgid "Bloc : Nuage d'étiquettes"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/includes/fields.php:10
+#: components/blocks/acf/src/cloud-tags/includes/fields.php:10
+msgid "Liste d'étiquettes"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/includes/fields.php:27
+#: components/blocks/acf/src/cloud-tags/includes/fields.php:27
+msgid "Ajouter un élément"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/includes/fields.php:32
+#: components/blocks/acf/build/faq/includes/fields.php:10
+#: components/blocks/acf/build/posts/includes/fields.php:36
+#: components/blocks/acf/build/team/includes/fields.php:10
+#: components/blocks/acf/build/testimonies/includes/fields.php:36
+#: components/blocks/acf/src/cloud-tags/includes/fields.php:32
+#: components/blocks/acf/src/faq/includes/fields.php:10
+#: components/blocks/acf/src/posts/includes/fields.php:36
+#: components/blocks/acf/src/team/includes/fields.php:10
+#: components/blocks/acf/src/testimonies/includes/fields.php:36
+msgid "Titre"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/includes/fields.php:53
+#: components/blocks/acf/src/cloud-tags/includes/fields.php:53
+msgid "Importance"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:6
+#: components/blocks/acf/src/faq/includes/fields.php:6
+msgid "Bloc : FAQ"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:30
+#: components/blocks/acf/build/posts/includes/fields.php:56
+#: components/blocks/acf/build/team/includes/fields.php:30
+#: components/blocks/acf/build/testimonies/includes/fields.php:56
+#: components/blocks/acf/src/faq/includes/fields.php:30
+#: components/blocks/acf/src/posts/includes/fields.php:56
+#: components/blocks/acf/src/team/includes/fields.php:30
+#: components/blocks/acf/src/testimonies/includes/fields.php:56
+msgid "Chapô"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:50
+#: components/blocks/acf/build/posts/includes/fields.php:76
+#: components/blocks/acf/build/team/includes/fields.php:50
+#: components/blocks/acf/build/testimonies/includes/fields.php:76
+#: components/blocks/acf/src/faq/includes/fields.php:50
+#: components/blocks/acf/src/posts/includes/fields.php:76
+#: components/blocks/acf/src/team/includes/fields.php:50
+#: components/blocks/acf/src/testimonies/includes/fields.php:76
+msgid "Configuration des articles"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:66
+#: components/blocks/acf/build/team/includes/fields.php:114
+#: components/blocks/acf/build/testimonies/includes/fields.php:92
+#: components/blocks/acf/src/faq/includes/fields.php:66
+#: components/blocks/acf/src/team/includes/fields.php:114
+#: components/blocks/acf/src/testimonies/includes/fields.php:92
+msgid "Afficher une pagination ?"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:86
+#: components/blocks/acf/build/posts/includes/fields.php:192
+#: components/blocks/acf/build/team/includes/fields.php:66
+#: components/blocks/acf/build/testimonies/includes/fields.php:132
+#: components/blocks/acf/src/faq/includes/fields.php:86
+#: components/blocks/acf/src/posts/includes/fields.php:192
+#: components/blocks/acf/src/team/includes/fields.php:66
+#: components/blocks/acf/src/testimonies/includes/fields.php:132
+msgid "Nombre d'articles à afficher"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/fields.php:108
+#: components/blocks/acf/build/posts/includes/fields.php:214
+#: components/blocks/acf/build/team/includes/fields.php:88
+#: components/blocks/acf/build/testimonies/includes/fields.php:154
+#: components/blocks/acf/src/faq/includes/fields.php:108
+#: components/blocks/acf/src/posts/includes/fields.php:214
+#: components/blocks/acf/src/team/includes/fields.php:88
+#: components/blocks/acf/src/testimonies/includes/fields.php:154
+msgid "Ordre des publications"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/template.php:53
+#: components/blocks/acf/src/faq/includes/template.php:53
+msgid "Voir toutes les questions"
+msgstr ""
+
+#: components/blocks/acf/build/faq/includes/template.php:111
+#: components/blocks/acf/build/team/includes/template.php:105
+#: components/blocks/acf/build/testimonies/includes/template.php:169
+#: components/blocks/acf/src/faq/includes/template.php:111
+#: components/blocks/acf/src/team/includes/template.php:105
+#: components/blocks/acf/src/testimonies/includes/template.php:169
+msgid "Voir plus"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:6
+#: components/blocks/acf/src/posts/includes/fields.php:6
+msgid "Bloc : articles"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:10
+#: components/blocks/acf/build/testimonies/includes/fields.php:10
+#: components/blocks/acf/src/posts/includes/fields.php:10
+#: components/blocks/acf/src/testimonies/includes/fields.php:10
+msgid "Disposition"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:92
+#: components/blocks/acf/src/posts/includes/fields.php:92
+msgid "Afficher l'image ?"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:112
+#: components/blocks/acf/src/posts/includes/fields.php:112
+msgid "Afficher la date ?"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:132
+#: components/blocks/acf/src/posts/includes/fields.php:132
+msgid "Afficher l'extrait ?"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:152
+#: components/blocks/acf/src/posts/includes/fields.php:152
+msgid "Afficher les catégories ?"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/fields.php:172
+#: components/blocks/acf/src/posts/includes/fields.php:172
+msgid "Afficher les étiquettes ?"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/template.php:71
+#: components/blocks/acf/build/posts/includes/template.php:184
+#: components/blocks/acf/src/posts/includes/template.php:71
+#: components/blocks/acf/src/posts/includes/template.php:184
+msgid "Voir tous les articles"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/template.php:127
+#: components/blocks/acf/src/posts/includes/template.php:127
+msgid "Catégories :"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/template.php:136
+#: components/blocks/acf/src/posts/includes/template.php:136
+msgid "Étiquettes :"
+msgstr ""
+
+#: components/blocks/acf/build/posts/includes/template.php:158
+#: components/blocks/acf/src/posts/includes/template.php:158
+msgid "Lire l'article"
+msgstr ""
+
+#: components/blocks/acf/build/team/includes/fields.php:6
+#: components/blocks/acf/src/team/includes/fields.php:6
+msgid "Bloc : équipe/membres"
+msgstr ""
+
+#: components/blocks/acf/build/team/includes/fields.php:70
+#: components/blocks/acf/src/team/includes/fields.php:70
+msgid "minimum 3, maximum 9, laisser vide pour le nombre par défaut configurable dans l'admin (Voir : réglages de lecture)"
+msgstr ""
+
+#: components/blocks/acf/build/team/includes/template.php:109
+#: components/blocks/acf/src/team/includes/template.php:109
+msgid "Voir toute l'équipe"
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/includes/fields.php:6
+#: components/blocks/acf/src/testimonies/includes/fields.php:6
+msgid "Bloc : témoignages"
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/includes/fields.php:112
+#: components/blocks/acf/src/testimonies/includes/fields.php:112
+msgid "Afficher l'auteur"
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/includes/template.php:64
+#: components/blocks/acf/build/testimonies/includes/template.php:176
+#: components/blocks/acf/src/testimonies/includes/template.php:64
+#: components/blocks/acf/src/testimonies/includes/template.php:176
+msgid "Voir tous les témoignages"
+msgstr ""
+
+#: includes/ajax/table-sanitize.php:50
+msgid "Succès de la mise à jour de la base de données"
+msgstr ""
+
+#: includes/ajax/table-sanitize.php:58
+msgid "Erreur lors de la mise à jour de la base de données"
+msgstr ""
+
+#: includes/ajax/table-sanitize.php:67
+#: includes/ajax/table-update.php:52
+msgid "Aucun changement n'a été effectué"
+msgstr ""
+
+#: includes/ajax/table-sanitize.php:76
+#: includes/ajax/table-update.php:58
+msgid "Données manquantes"
+msgstr ""
+
+#: includes/ajax/table-update.php:35
+msgid "Changements enregistrés"
+msgstr ""
+
+#: includes/ajax/table-update.php:43
+msgid "Erreur lors de l'enregistrement des changements"
+msgstr ""
+
+#: includes/blocks/categories-register.php:10
+msgid "Highfive - Blocs"
+msgstr ""
+
+#: includes/register-page.php:12
+msgid "Configuration"
+msgstr ""
+
+#: includes/register-page.php:13
+msgid "Highfive blocs"
+msgstr ""
+
+#: templates/admin.php:7
+msgid "Highfive blocs configuration"
+msgstr ""
+
+#: templates/admin.php:19
+msgid "Rechercher..."
+msgstr ""
+
+#: templates/admin.php:60
+msgid "Mise à jour de la base de données"
+msgstr ""
+
+#: templates/admin.php:61
+msgid "Veuillez mettre à jour la base de données afin d'activer/désactiver les blocs."
+msgstr ""
+
+#: templates/admin.php:67
+msgid "Mettre à jour"
+msgstr ""
+
+#: templates/admin.php:75
+msgid "Ce plugin nécéssite ACF Pro pour fonctionner pleinement."
+msgstr ""
+
+#: templates/admin.php:76
+msgid "Veuillez installer ACF Pro afin de profiter de l'intégralité de la bibliothèque de blocs."
+msgstr ""
+
+#: templates/admin.php:145
+msgid "Configuration avancée"
+msgstr ""
+
+#: templates/admin.php:154
+msgid "Les informations du bloc n'ont pas pu être récupérées, veuillez build vos blocs"
+msgstr ""
+
+#: build/js/admin.js:628
+#: build/js/admin.js:674
+#: build/js/admin.min.js:1
+#: build/js/admin.js:630
+#: build/js/admin.js:689
+msgid "Chargement"
+msgstr ""
+
+#: build/js/admin.js:645
+#: build/js/admin.min.js:1
+#: build/js/admin.js:654
+msgid "Erreur ajax : activation/désactivation du block"
+msgstr ""
+
+#: build/js/admin.js:695
+#: build/js/admin.min.js:1
+#: build/js/admin.js:716
+msgid "Erreur ajax : mise à niveau de la base de données"
+msgstr ""
+
+#: components/blocks/acf/build/faq/assets/view.js:1
+#: components/blocks/acf/build/team/assets/view.js:1
+#: components/blocks/acf/build/testimonies/assets/view.js:1
+#: components/blocks/acf/src/faq/assets/js/components/load-more.js:42
+#: components/blocks/acf/src/team/assets/js/components/load-more.js:58
+#: components/blocks/acf/src/testimonies/assets/js/components/load-more.js:43
+msgid "Aucun résultat"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:30
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:51
+msgid "Le point de rupture"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:51
+msgid "n'a pas été trouvé."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:58
+msgid "Activer les points de rupture responsive"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:30
+msgid "existe déjà."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:69
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:70
+msgid "Ajouter un point de rupture"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:85
+msgid "Point de rupture"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/Controls.jsx:22
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:88
+msgid "Configuration globale"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:91
+#: components/blocks/react/src/modal/assets/js/components/controls/MaxWidth.jsx:9
+msgid "Largeur maximum"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/Controls.jsx:29
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:106
+msgid "Configuration du bouton de fermeture"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:109
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonSize.jsx:10
+msgid "Taille du bouton"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:123
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonPadding.jsx:10
+msgid "L'espace entre le texte du bouton et sa bordure"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:139
+msgid "Supprimer le point de rupture"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/Breakpoints.jsx:144
+msgid "Supprimer la configuration du point de rupture."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonColors.jsx:9
+#: components/blocks/react/src/modal/assets/js/components/controls/Colors.jsx:9
+#: components/blocks/react/src/modal/assets/js/components/controls/OverlayColors.jsx:9
+msgid "Configuration des couleurs"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonColors.jsx:14
+msgid "Texte/icone"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonColors.jsx:21
+msgid "Bordure"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/CloseButtonColors.jsx:28
+#: components/blocks/react/src/modal/assets/js/components/controls/Colors.jsx:14
+#: components/blocks/react/src/modal/assets/js/components/controls/OverlayColors.jsx:14
+msgid "Fond"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/OpenAuto.jsx:9
+msgid "Ouverture automatique ?"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/OpenAuto.jsx:10
+msgid "La modale s'ouvrira lors du chargement de la page."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/OpenAuto.jsx:10
+msgid "La modale s'ouvrira avec un évènement personnalisé."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/OpenSelector.jsx:9
+msgid "Sélecteur d'ouverture de la modale"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/controls/OpenSelector.jsx:12
+msgid "Le sélécteur d'élément qui va ouvrir la modale."
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/Controls.jsx:35
+msgid "Configuration du rendu"
+msgstr ""
+
+#: components/blocks/react/build/modal/assets/index.js:1
+#: components/blocks/react/src/modal/assets/js/components/Controls.jsx:39
+msgid "Responsive"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/block.json
+#: components/blocks/acf/src/cloud-tags/block.json
+msgctxt "block title"
+msgid "Nuage d'étiquettes"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/block.json
+#: components/blocks/acf/src/cloud-tags/block.json
+msgctxt "block description"
+msgid "Un bloc ACF qui affiche des étiquettes personnalisées par ordre d'importance."
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/block.json
+#: components/blocks/acf/build/faq/block.json
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/build/team/block.json
+#: components/blocks/acf/build/testimonies/block.json
+#: components/blocks/acf/src/cloud-tags/block.json
+#: components/blocks/acf/src/faq/block.json
+#: components/blocks/acf/src/posts/block.json
+#: components/blocks/acf/src/team/block.json
+#: components/blocks/acf/src/testimonies/block.json
+#: components/blocks/react/build/modal/block.json
+#: components/blocks/react/src/modal/block.json
+msgctxt "block keyword"
+msgid "h5"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/block.json
+#: components/blocks/acf/src/cloud-tags/block.json
+msgctxt "block keyword"
+msgid "nuage"
+msgstr ""
+
+#: components/blocks/acf/build/cloud-tags/block.json
+#: components/blocks/acf/src/cloud-tags/block.json
+msgctxt "block keyword"
+msgid "étiquettes"
+msgstr ""
+
+#: components/blocks/acf/build/faq/block.json
+#: components/blocks/acf/src/faq/block.json
+msgctxt "block title"
+msgid "FAQ"
+msgstr ""
+
+#: components/blocks/acf/build/faq/block.json
+#: components/blocks/acf/src/faq/block.json
+msgctxt "block description"
+msgid "Un bloc ACF qui affiche les différentes questions du type de publication FAQ."
+msgstr ""
+
+#: components/blocks/acf/build/faq/block.json
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/build/team/block.json
+#: components/blocks/acf/build/testimonies/block.json
+#: components/blocks/acf/src/faq/block.json
+#: components/blocks/acf/src/posts/block.json
+#: components/blocks/acf/src/team/block.json
+#: components/blocks/acf/src/testimonies/block.json
+msgctxt "block keyword"
+msgid "texte"
+msgstr ""
+
+#: components/blocks/acf/build/faq/block.json
+#: components/blocks/acf/src/faq/block.json
+msgctxt "block keyword"
+msgid "faq"
+msgstr ""
+
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/src/posts/block.json
+msgctxt "block title"
+msgid "Articles"
+msgstr ""
+
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/src/posts/block.json
+msgctxt "block description"
+msgid "Un bloc ACF qui affiche des articles."
+msgstr ""
+
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/src/posts/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr ""
+
+#: components/blocks/acf/build/posts/block.json
+#: components/blocks/acf/src/posts/block.json
+msgctxt "block keyword"
+msgid "articles"
+msgstr ""
+
+#: components/blocks/acf/build/team/block.json
+#: components/blocks/acf/src/team/block.json
+msgctxt "block title"
+msgid "Équipe/membres"
+msgstr ""
+
+#: components/blocks/acf/build/team/block.json
+#: components/blocks/acf/src/team/block.json
+msgctxt "block description"
+msgid "Un bloc ACF qui affiche les membres du type de publication équipe."
+msgstr ""
+
+#: components/blocks/acf/build/team/block.json
+#: components/blocks/acf/src/team/block.json
+msgctxt "block keyword"
+msgid "équipe"
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/block.json
+#: components/blocks/acf/src/testimonies/block.json
+msgctxt "block title"
+msgid "Témoignages"
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/block.json
+#: components/blocks/acf/src/testimonies/block.json
+msgctxt "block description"
+msgid "Un bloc ACF qui affiche les témoignages du type de publication testimony."
+msgstr ""
+
+#: components/blocks/acf/build/testimonies/block.json
+#: components/blocks/acf/src/testimonies/block.json
+msgctxt "block keyword"
+msgid "témoignages"
+msgstr ""
+
+#: components/blocks/react/build/modal/block.json
+#: components/blocks/react/src/modal/block.json
+msgctxt "block title"
+msgid "Modale"
+msgstr ""
+
+#: components/blocks/react/build/modal/block.json
+#: components/blocks/react/src/modal/block.json
+msgctxt "block description"
+msgid "Un bloc qui permet d'afficher une modale."
+msgstr ""
+
+#: components/blocks/react/build/modal/block.json
+#: components/blocks/react/src/modal/block.json
+msgctxt "block keyword"
+msgid "modale"
+msgstr ""
