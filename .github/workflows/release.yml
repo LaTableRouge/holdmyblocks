@@ -22,7 +22,7 @@ jobs:
       - name: Compile CSS and Javascript
         run: |
           npm ci
-          npm run prod:plugin && npm run build:acf-blocks && npm run build:react-blocks
+          npm run prod:plugin && npm run build:react-blocks
 
       # Zip le plugin dans une release clean de tout fichiers inutiles
       - name: Zip release
