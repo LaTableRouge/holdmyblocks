@@ -3,7 +3,7 @@
  * Plugin Name: Hold my blocks
  * Description: Ensemble de blocs
  * Author: The WordPress Contributors & VDIANA DEV
- * Author URI: https://mlnop.Fr/
+ * Author URI: https://mlnop.fr/
  * Requires at least: 6.2
  * Requires PHP: 8.0
  * Requires ACF: 6.2.1
@@ -14,44 +14,23 @@
 global $wpdb;
 
 define('HMB_BLOCKS_VERSION', '0.0.1');
-define('HMB_BLOCKS_IS_PROD', true);
+define('HMB_BLOCKS_IS_PROD', false);
 define('HMB_BLOCKS_ENABLE_BO', true);
 define('HMB_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('HMB_BLOCKS_URL', plugin_dir_url(__FILE__));
 define('HMB_BLOCKS_BASE_NAME', basename(dirname(__FILE__)));
-define('HMB_BLOCKS_ACF_PATH', HMB_BLOCKS_PATH . 'components/blocks/acf/build');
 define('HMB_BLOCKS_REACT_PATH', HMB_BLOCKS_PATH . 'components/blocks/react/build');
 define('HMB_BLOCKS_TABLE_NAME', $wpdb->prefix . 'hmb_blocks');
 
 $blockList = [
-    'acf' => class_exists('acf_pro')
-        ? [
-            'cloud-tags' => [
-                'enabled' => false,
-                'supports' => [
-                    'spacing' => [
-                        'margin' => true,
-                        'padding' => true
-                    ]
-                ]
-            ],
-            'faq' => [
-                'enabled' => true
-            ],
-            'posts' => [
-                'enabled' => true
-            ],
-            'team' => [
-                'enabled' => true
-            ],
-            'testimonies' => [
-                'enabled' => true
-            ],
-        ]
-        : [],
     'react' => [
-        'modal' => [
-            'enabled' => true
+        'bongo-cat' => [
+            'enabled' => true,
+            'supports' => [
+                'spacing' => [
+                    'padding' => true
+                ]
+            ]
         ]
     ],
 ];
@@ -96,11 +75,6 @@ if (HMB_BLOCKS_ENABLE_BO) {
 * ====== Blocks
 * Register une catégorie pour les blocks
 * Enqueue les blocs react
-* Enqueue les blocs acf
 */
 require HMB_BLOCKS_PATH . 'includes/blocks/categories-register.php';
 require HMB_BLOCKS_PATH . 'includes/blocks/react/blocks-register.php';
-if (class_exists('acf_pro')) {
-    require HMB_BLOCKS_PATH . 'includes/blocks/acf/blocks-helpers.php';
-    require HMB_BLOCKS_PATH . 'includes/blocks/acf/blocks-register.php';
-}

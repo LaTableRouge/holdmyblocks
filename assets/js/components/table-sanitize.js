@@ -1,4 +1,4 @@
-import { post } from '../common/functions'
+import { delay, post } from '../common/functions'
 import { __, variables } from '../common/variables'
 import { loadingNotyf } from './notification'
 
@@ -44,11 +44,14 @@ export const tableSanitize = () => {
             type: 'error'
           })
         })
-        .finally(() => {
-          const cardForm = document.getElementById('hmb-blocks__settings-form')
-          if (cardForm) {
-            cardForm.removeAttribute('data-disabled')
-          }
+        .finally(async () => {
+          await delay(500)
+          window.location.reload()
+
+          // const cardForm = document.getElementById('hmb-blocks__settings-form')
+          // if (cardForm) {
+          //   cardForm.removeAttribute('data-disabled')
+          // }
         })
     })
   }

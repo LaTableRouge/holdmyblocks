@@ -18,7 +18,17 @@ function hmb_blocks_register_react_blocks() {
                 $jsonPath = HMB_BLOCKS_REACT_PATH . "/{$slug}/block.json";
 
                 if (file_exists($jsonPath)) {
-                    register_block_type($jsonPath);
+                    // Register le block
+                    if (!empty(isset($block['supports']))) {
+                        register_block_type(
+                            $jsonPath,
+                            [
+                                'supports' => $block['supports']
+                            ]
+                        );
+                    } else {
+                        register_block_type($jsonPath);
+                    }
 
                     $json = json_decode(file_get_contents($jsonPath), true);
 

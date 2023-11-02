@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "hmb/bongo-cat",
+  "version": "1.0.0",
+  "title": "Bongo cat",
+  "category": "hmb-blocks",
+  "icon": "block-default",
+  "description": "Un bloc qui permet d'afficher un bongo cat.",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": true,
+    "spacing": {
+      "padding": true
+    }
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string"
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "hmb-blocks",
+  "keywords": [
+    "hmb",
+    "bongo",
+    "cat",
+    "bongo-cat"
+  ],
+  "viewScript": "file:./assets/view.js",
+  "editorScript": "file:./assets/index.jsx",
+  "editorStyle": "file:./assets/index.css",
+  "style": "file:./assets/style-index.css"
+}

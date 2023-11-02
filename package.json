@@ -11,8 +11,6 @@
     "build:plugin": "npm run prod:plugin --chore=all --state=build && npm run dev:plugin --state=build",
     "start:react-blocks": "wp-scripts start --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
     "build:react-blocks": "wp-scripts build --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
-    "start:acf-blocks": "wp-scripts start --webpack-src-dir=components/blocks/acf/src --output-path=components/blocks/acf/build --webpack-copy-php",
-    "build:acf-blocks": "wp-scripts build --webpack-src-dir=components/blocks/acf/src --output-path=components/blocks/acf/build --webpack-copy-php",
     "plugin-zip": "wp-scripts plugin-zip"
   },
   "files": [

@@ -17,20 +17,9 @@ export const searchBlock = () => {
       const searchValue = formData.get('search-blocks')
       const regex = new RegExp(sluggify(searchValue), '')
 
-      // Setup d'un array pour match les types des blocs
-      const searchTypes = []
-      const acfOn = formData.get('acf')
-      if (acfOn) {
-        searchTypes.push('acf')
-      }
-      const reactOn = formData.get('react')
-      if (reactOn) {
-        searchTypes.push('react')
-      }
-
       const cards = document.querySelectorAll('.block-card')
       if (cards.length) {
-        if (!searchValue && !searchTypes.length) {
+        if (!searchValue) {
           cards.forEach((card) => {
             card.removeAttribute('style')
           })
@@ -38,13 +27,6 @@ export const searchBlock = () => {
           const foundCards = []
 
           cards.forEach((card) => {
-            // Vérification du type
-            let matchType
-            const type = card.dataset.type
-            if (searchTypes.includes(type)) {
-              matchType = true
-            }
-
             // Vérification des keywords
             let matchKeywords = true
             let keywords = card.dataset.keywords
@@ -55,7 +37,7 @@ export const searchBlock = () => {
               })
             }
 
-            if (matchType && matchKeywords) {
+            if (matchKeywords) {
               foundCards.push(card)
             }
 

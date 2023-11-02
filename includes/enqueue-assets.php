@@ -1,7 +1,7 @@
 <?php
 
 function hmb_blocks_enqueue_admin_assets($hook) {
-    if ($hook === 'hmb-blocks/templates/admin.php') {
+    if ($hook === 'holdmyblocks/templates/admin.php') {
         $scriptFiles = [
             'admin'
         ];

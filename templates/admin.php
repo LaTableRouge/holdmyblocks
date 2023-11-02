@@ -19,20 +19,6 @@
                 placeholder="<?php _e('Rechercher...', 'hmb-blocks') ?>"
             >
 
-            <fieldset class="search-form__filters">
-                <input
-                    type="checkbox"
-                    name="acf"
-                    class="filters__filter filters__filter--acf"
-                >
-
-                <input
-                    type="checkbox"
-                    name="react"
-                    class="filters__filter filters__filter--react"
-                >
-            </fieldset>
-
             <button type="submit">
                 <span class="icon-search"></span>
             </button>
@@ -43,15 +29,11 @@
     // Check si la liste des blocks est bien la même que celle enregistrée en BDD
     $dbblockList = hmb_blocks_get_db_blocks();
 
-    $acfBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $blockList['acf']);
-    $acfDBBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $dbblockList['acf']);
-    $acfBlockDiff = hmb_blocks_array_diff_assoc_recursive($acfDBBlockList, $acfBlockList);
-
     $reactBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $blockList['react']);
     $reactDBBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $dbblockList['react']);
     $reactBlockDiff = hmb_blocks_array_diff_assoc_recursive($reactDBBlockList, $reactBlockList);
 
-    $blockDiff = array_merge($acfBlockDiff, $reactBlockDiff);
+    $blockDiff = $reactBlockDiff;
     ?>
 
     <?php if(!empty($blockDiff)) { ?>
@@ -70,14 +52,6 @@
         </div>
     <?php } ?>
 
-    <?php if (!class_exists('acf_pro')) { ?>
-        <div class="notice notice-info is-dismissible">
-            <p><strong><?php _e('Ce plugin nécéssite ACF Pro pour fonctionner pleinement.', 'hmb-blocks'); ?></strong></p>
-            <p><?php _e("Veuillez installer ACF Pro afin de profiter de l'intégralité de la bibliothèque de blocs.", 'hmb-blocks'); ?></p>
-            <p></p>
-        </div>
-    <?php } ?>
-
     <form
         id="hmb-blocks__settings-form"
         class="hmb-blocks__form"
@@ -87,11 +61,7 @@
             foreach ($dbblockList as $type => $blocks) {
                 if(!empty($blocks)) {
                     foreach ($blocks as $slug => $block) {
-                        if ($type === 'acf') {
-                            $jsonPath = HMB_BLOCKS_ACF_PATH . "/{$slug}/block.json";
-                        }else if($type === 'react'){
-                            $jsonPath = HMB_BLOCKS_REACT_PATH . "/{$slug}/block.json";
-                        }
+                        $jsonPath = HMB_BLOCKS_REACT_PATH . "/{$slug}/block.json";
 
                         if (file_exists($jsonPath)) {
                             $jsonString = file_get_contents($jsonPath);
