@@ -1,0 +1,28 @@
+.notice {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-left-color: var(--accent-color);
+  line-height: 1.1;
+  gap: 10px;
+
+  --accent-color: #000;
+
+  .dashicon {
+    color: var(--accent-color);
+  }
+
+  &-warning {
+    --accent-color: #dba617;
+  }
+
+  &-info {
+    --accent-color: #72aee6;
+  }
+
+  &-error {
+    --accent-color: #d63638;
+  }
+}

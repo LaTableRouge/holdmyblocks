@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+html.hmb-modal-deployed {
+  overflow: hidden;
+}
+
+.wp-block-hmb-modal {
+  @import 'components/modal';
+}

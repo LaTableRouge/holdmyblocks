@@ -1,0 +1,77 @@
+& {
+  --hmb-modal-z-index: 999999;
+  --hmb-modal-padding: 30px;
+
+  &.is-displayed {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  display: grid;
+  position: fixed;
+  z-index: var(--hmb-modal-z-index);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: initial !important;
+  height: 100vh;
+  height: 100svh;
+  margin: 0 !important;
+  padding: var(--hmb-modal-padding);
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+
+  .hmb-modal__inner-wrapper {
+    display: grid;
+    place-items: center;
+  }
+
+  .hmb-modal__overlay {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background-color: var(--hmb-modal-overlay-background-color);
+  }
+
+  .hmb-modal__content {
+    position: relative;
+    width: var(--hmb-modal-max-width);
+    max-width: 100%;
+    max-height: calc(100vh - (var(--hmb-modal-padding) * 2));
+    max-height: calc(100svh - (var(--hmb-modal-padding) * 2));
+    overflow: auto;
+    background-color: var(--hmb-modal-background-color);
+
+    .content__close {
+      display: grid;
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      width: var(--hmb-modal-close-button-size);
+      height: var(--hmb-modal-close-button-size);
+      padding: var(--hmb-modal-close-button-padding);
+      transition: opacity 0.2s ease-in-out;
+      border: 1px solid var(--hmb-modal-close-button-border-color);
+      background: none;
+      background-color: var(--hmb-modal-close-button-background-color);
+      color: var(--hmb-modal-close-button-color);
+      cursor: pointer;
+      place-items: center;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+          fill: currentColor;
+        }
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
