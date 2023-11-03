@@ -9,7 +9,7 @@
     "watch:plugin": "mix watch",
     "prod:plugin": "mix --production",
     "build:plugin": "npm run prod:plugin --chore=all --state=build && npm run dev:plugin --state=build",
-    "start:react-blocks": "wp-scripts start --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
+    "watch:react-blocks": "wp-scripts start --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
     "build:react-blocks": "wp-scripts build --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
     "plugin-zip": "wp-scripts plugin-zip"
   },

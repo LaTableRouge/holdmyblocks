@@ -29,38 +29,19 @@
     // Check si la liste des blocks est bien la même que celle enregistrée en BDD
     $dbblockList = hmb_blocks_get_db_blocks();
 
-    $reactBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $blockList['react']);
-    $reactDBBlockList = array_map(function ($v) {if (is_array($v) || is_object($v)) {return "";}return $v;}, $dbblockList['react']);
-    $reactBlockDiff = hmb_blocks_array_diff_assoc_recursive($reactDBBlockList, $reactBlockList);
-
-    $blockDiff = $reactBlockDiff;
+    $blockList = [];
+    $blockList['react'] = array_diff(scandir(HMB_BLOCKS_REACT_PATH), ['.', '..']);
+    $blockList['react'] = array_values($blockList['react']);
     ?>
-
-    <?php if(!empty($blockDiff)) { ?>
-        <div class="notice notice-error">
-            <form id="hmb-blocks__db-sanitize-form">
-                <p><strong><?php _e('Mise à jour de la base de données', 'hmb-blocks'); ?></strong></p>
-                <p><?php _e("Veuillez mettre à jour la base de données afin d'activer/désactiver les blocs.", 'hmb-blocks'); ?></p>
-                <input
-                    type="hidden"
-                    name="blockList"
-                    value='<?php echo base64_encode(serialize($blockList)); ?>'
-                >
-                <button type="submit" class="button-primary"><?php _e('Mettre à jour', 'hmb-blocks'); ?></button>
-                <p></p>
-            </form>
-        </div>
-    <?php } ?>
 
     <form
         id="hmb-blocks__settings-form"
         class="hmb-blocks__form"
-        <?php echo !empty($blockDiff) ? 'data-disabled' : ''; ?>
     >
         <?php
-            foreach ($dbblockList as $type => $blocks) {
+            foreach ($blockList as $type => $blocks) {
                 if(!empty($blocks)) {
-                    foreach ($blocks as $slug => $block) {
+                    foreach ($blocks as $slug) {
                         $jsonPath = HMB_BLOCKS_REACT_PATH . "/{$slug}/block.json";
 
                         if (file_exists($jsonPath)) {
@@ -74,11 +55,6 @@
                             $keywords = $jsonData['keywords'];
 
                             $keywordsArray = [strtolower($title), ...$keywords];
-
-                            $supportsArray = [];
-                            if (!empty(isset($block['supports']))) {
-                                $supportsArray = $block['supports'];
-                            }
                             ?>
                                 <div
                                     class="block-card block-card--<?php echo $type; ?>"
@@ -109,15 +85,6 @@
                                             <?php echo hmb_blocks_get_enabled_status($type, $slug) ? 'checked' : '';  ?>
                                         >
                                     </fieldset>
-
-                                    <?php if(!empty($supportsArray)) { ?>
-                                        <details class="block-card__advanced-config">
-                                            <summary><?php _e('Configuration avancée', 'hmb-blocks'); ?></summary>
-                                            <fieldset>
-                                                <?php echo hmb_blocks_make_input_list($supportsArray, $type, $slug); ?>
-                                            </fieldset>
-                                        </details>
-                                    <?php } ?>
                                 </div>
                             <?php
                         } else {

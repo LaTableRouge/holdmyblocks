@@ -1,6 +1,6 @@
 <?php
 
-function hmb_blocks_fill_table($blockList) {
+function hmb_blocks_fill_table() {
     global $wpdb;
 
     $dbDatas = $wpdb->get_results('SELECT * FROM ' . HMB_BLOCKS_TABLE_NAME);
@@ -9,7 +9,7 @@ function hmb_blocks_fill_table($blockList) {
             HMB_BLOCKS_TABLE_NAME,
             [
                 'id' => 1,
-                'blocks' => json_encode($blockList),
+                'blocks' => json_encode([]),
             ]
         );
     }

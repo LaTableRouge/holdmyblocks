@@ -1,16 +1,37 @@
 <?php
 /**
  * Plugin Name: Hold my blocks
+ * Plugin URI: https://github.com/MLNOP/holdmyblocks
  * Description: Ensemble de blocs
+ * Tags: blocks, bongo-cat, plugin
  * Author: The WordPress Contributors & VDIANA DEV
  * Author URI: https://mlnop.fr/
  * Requires at least: 6.2
+ * Tested up to: 6.3
  * Requires PHP: 8.0
- * Requires ACF: 6.2.1
  * Version: 0.0.1
- * GitHub Theme URI: https://github.com/MLNOP/holdmyblocks
- *
+ * Stable tag: 0.0.1
+ * Text Domain: hmb-blocks
+ * Domain Path: /lang
+ * License: GPLv2 or later
  */
+
+/*
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version
+2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+with this program. If not, visit: https://www.gnu.org/licenses/
+
+Copyright 2023 Monzilla Media. All rights reserved.
+*/
 
 global $wpdb;
 
@@ -23,19 +44,6 @@ define('HMB_BLOCKS_BASE_NAME', basename(dirname(__FILE__)));
 define('HMB_BLOCKS_REACT_PATH', HMB_BLOCKS_PATH . 'components/blocks/react/build');
 define('HMB_BLOCKS_TABLE_NAME', $wpdb->prefix . 'hmb_blocks');
 
-$blockList = [
-    'react' => [
-        'bongo-cat' => [
-            'enabled' => true,
-            'supports' => [
-                'spacing' => [
-                    'padding' => true
-                ]
-            ]
-        ]
-    ],
-];
-
 /*
 * ====== DATABASE
 * Création/Suppression d'une table custom
@@ -46,10 +54,7 @@ require HMB_BLOCKS_PATH . 'includes/database/table-create.php';
 require HMB_BLOCKS_PATH . 'includes/database/table-delete.php';
 require HMB_BLOCKS_PATH . 'includes/database/table-fill.php';
 register_activation_hook(__FILE__, 'hmb_blocks_create_table');
-register_activation_hook(__FILE__, function () use ($blockList) {
-    hmb_blocks_fill_table($blockList);
-});
-register_deactivation_hook(__FILE__, 'hmb_blocks_delete_table');
+register_activation_hook(__FILE__, 'hmb_blocks_fill_table');
 register_uninstall_hook(__FILE__, 'hmb_blocks_delete_table');
 
 /*
@@ -61,8 +66,8 @@ register_uninstall_hook(__FILE__, 'hmb_blocks_delete_table');
 require HMB_BLOCKS_PATH . 'includes/helpers.php';
 require HMB_BLOCKS_PATH . 'includes/load-textdomain.php';
 require HMB_BLOCKS_PATH . 'includes/enqueue-assets.php';
+// require HMB_BLOCKS_PATH . 'includes/update-checker.php';
 require HMB_BLOCKS_PATH . 'includes/ajax/table-update.php';
-require HMB_BLOCKS_PATH . 'includes/ajax/table-sanitize.php';
 
 /*
 * ====== Pages

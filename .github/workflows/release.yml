@@ -29,11 +29,11 @@ jobs:
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: 'zip'
-          filename: '${RELEASE_NAME}.zip'
+          filename: '${{ env.RELEASE_NAME }}.zip'
           path: 'holdmyblocks.php lang/ build/ includes/ templates/ components/blocks/acf/build/ components/blocks/react/build/'
 
       # Publie la release
       - name: Publish release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: '${RELEASE_NAME}.zip'
+          artifacts: '${{ env.RELEASE_NAME }}.zip'

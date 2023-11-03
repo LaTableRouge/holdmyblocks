@@ -102,3 +102,12 @@
 
 
 *Note : une release du plugin est automatiquement générée lors de la création d'un tag sur [github](https://github.com/MLNOP/holdmyblocks/releases)*
+
+
+## Roadmap
+- [x] React Bongo cat bloc
+- [ ] Back-office style
+- [ ] Mises à jour automatiques
+- [ ] ACF bloc exemple ([branche](https://github.com/MLNOP/holdmyblocks/tree/major/acfBlocks))
+- [ ] React carousel bloc
+- [ ] React modale bloc ([branche](https://github.com/MLNOP/holdmyblocks/tree/minor/reactBlockModale))
