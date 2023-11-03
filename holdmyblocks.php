@@ -9,8 +9,8 @@
  * Requires at least: 6.2
  * Tested up to: 6.3
  * Requires PHP: 8.0
- * Version: 0.0.1
- * Stable tag: 0.0.1
+ * Version: 0.0.2
+ * Stable tag: 0.0.2
  * Text Domain: hmb-blocks
  * Domain Path: /lang
  * License: GPLv2 or later

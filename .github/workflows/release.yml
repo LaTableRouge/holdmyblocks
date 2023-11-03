@@ -36,5 +36,5 @@ jobs:
       - name: Publish release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: '${{ env.RELEASE_NAME }}.zip'
+          artifacts: '${{ env.RELEASE_NAME }}.zip,update/*.jpg,update/info.json'
           generateReleaseNotes: true
