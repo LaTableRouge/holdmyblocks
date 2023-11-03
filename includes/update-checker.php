@@ -14,8 +14,8 @@ class mishaUpdateChecker {
 
         $this->plugin_slug = HMB_BLOCKS_BASE_NAME;
         $this->version = $this->plugin_datas['Version'];
-        $this->author = $this->plugin_datas['Author'];
-        $this->cache_key = 'misha_custom_upd';
+        $this->author = $this->plugin_datas['AuthorName'];
+        $this->cache_key = 'mlnop_custom_upd';
         $this->cache_allowed = false;
 
         add_filter('plugins_api', [$this, 'info'], 20, 3);
@@ -30,7 +30,7 @@ class mishaUpdateChecker {
         if (!$remote || !$this->cache_allowed) {
 
             $remote = wp_remote_get(
-                "https://github.com/{$this->author}/{$this->plugin_slug}/releases/latest",
+                "https://github.com/{$this->author}/{$this->plugin_slug}/releases/latest/download/info.json",
                 [
                     'timeout' => 10,
                     'headers' => [
@@ -77,32 +77,28 @@ class mishaUpdateChecker {
 
         $response = new stdClass();
 
-        // $response->name = $remote->name;
-        $response->slug = $this->plugin_slug;
-        $response->version = $remote->tag_name;
-        // $response->tested = $remote->tested;
-        // $response->requires = $remote->requires;
-        // $response->author = $remote->author;
-        // $response->author_profile = $remote->author_profile;
-        // $response->donate_link = $remote->donate_link;
-        // $response->homepage = $remote->homepage;
-        $response->download_link = "https://github.com/{$this->author}/{$this->plugin_slug}/releases/latest";
-        $response->trunk = "https://github.com/{$this->author}/{$this->plugin_slug}/releases/latest";
-        // $response->requires_php = $remote->requires_php;
-        // $response->last_updated = $remote->last_updated;
+        $response->name = $remote->name;
+        $response->slug = $remote->slug;
+        $response->version = $remote->version;
+        $response->tested = $remote->tested;
+        $response->requires = $remote->requires;
+        $response->author = $remote->author;
+        $response->download_link = $remote->download_url;
+        $response->trunk = $remote->download_url;
+        $response->requires_php = $remote->requires_php;
 
-        // $response->sections = [
-        //     'description' => $remote->sections->description,
-        //     'installation' => $remote->sections->installation,
-        //     'changelog' => $remote->sections->changelog
-        // ];
+        $response->sections = [
+            'description' => $remote->sections->description,
+            'installation' => $remote->sections->installation,
+            'changelog' => $remote->sections->changelog
+        ];
 
-        // if (!empty( $remote->banners)) {
-        //     $response->banners = [
-        //         'low' => $remote->banners->low,
-        //         'high' => $remote->banners->high
-        //     ];
-        // }
+        if (!empty( $remote->banners)) {
+            $response->banners = [
+                'low' => $remote->banners->low,
+                'high' => $remote->banners->high
+            ];
+        }
 
         return $response;
     }
@@ -115,22 +111,21 @@ class mishaUpdateChecker {
 
         $remote = $this->request();
 
-        // TODO : ajouter la vérification des versions de php & de Wordpress
         if (
             $remote
-            && version_compare($this->version, $remote->tag_name, '<')
-            // && version_compare($remote->requires, get_bloginfo('version'), '<=')
-            // && version_compare($remote->requires_php, PHP_VERSION, '<')
+            && version_compare($this->version, $remote->version, '<')
+            && version_compare($remote->requires, get_bloginfo('version'), '<=')
+            && version_compare($remote->requires_php, PHP_VERSION, '<')
         ) {
             $response = new stdClass();
-            $response->slug = $this->plugin_slug;
-            $response->plugin = $this->plugin_slug . '/' . $this->plugin_slug . '.php';
-            $response->new_version = $remote->tag_name;
-            $response->tested = '6.2';
-            $response->package = 'https://github.com' . str_replace('/tag', '/download', $remote->update_url) . '/' . $this->plugin_slug . '.zip';
+            $response->slug = $remote->slug;
+            $response->plugin = $remote->slug . '/' . $remote->slug . '.php';
+            $response->new_version = $remote->version;
+            $response->tested = $remote->tested;
+            $response->package = $remote->download_url;
 
             $transient->response[$response->plugin] = $response;
-            $transient->checked[$response->plugin] = $remote->tag_name;
+            $transient->checked[$response->plugin] = $remote->version;
         }
 
         return $transient;
@@ -143,7 +138,7 @@ class mishaUpdateChecker {
             && 'update' === $options['action']
             && 'plugin' === $options['type']
         ) {
-            delete_transient( $this->cache_key );
+            delete_transient($this->cache_key);
         }
     }
 }

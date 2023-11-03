@@ -9,8 +9,8 @@
  * Requires at least: 6.2
  * Tested up to: 6.3
  * Requires PHP: 8.0
- * Version: 0.0.2
- * Stable tag: 0.0.2
+ * Version: 0.0.1
+ * Stable tag: 0.0.1
  * Text Domain: hmb-blocks
  * Domain Path: /lang
  * License: GPLv2 or later
@@ -38,7 +38,7 @@ if (!function_exists('get_plugin_data')) {
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
-define('HMB_BLOCKS_IS_PROD', false);
+define('HMB_BLOCKS_IS_PROD', true);
 define('HMB_BLOCKS_ENABLE_BO', true);
 define('HMB_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('HMB_BLOCKS_URL', plugin_dir_url(__FILE__));
@@ -68,7 +68,7 @@ register_uninstall_hook(__FILE__, 'hmb_blocks_delete_table');
 require HMB_BLOCKS_PATH . 'includes/helpers.php';
 require HMB_BLOCKS_PATH . 'includes/load-textdomain.php';
 require HMB_BLOCKS_PATH . 'includes/enqueue-assets.php';
-// require HMB_BLOCKS_PATH . 'includes/update-checker.php';
+require HMB_BLOCKS_PATH . 'includes/update-checker.php';
 require HMB_BLOCKS_PATH . 'includes/ajax/table-update.php';
 
 /*

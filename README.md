@@ -106,8 +106,8 @@
 
 ## Roadmap
 - [x] React Bongo cat bloc
+- [x] Mises à jour automatiques
 - [ ] Back-office style
-- [ ] Mises à jour automatiques
 - [ ] ACF bloc exemple ([branche](https://github.com/MLNOP/holdmyblocks/tree/major/acfBlocks))
 - [ ] React carousel bloc
 - [ ] React modale bloc ([branche](https://github.com/MLNOP/holdmyblocks/tree/minor/reactBlockModale))

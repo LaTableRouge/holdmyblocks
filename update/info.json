@@ -2,18 +2,18 @@
     "name": "Hold my blocks",
     "slug": "holdmyblocks",
     "author": "<a href='https://mlnop.fr'>MLNOP</a>",
-    "version": "0.0.2",
-    "download_url": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.2/holdmyblocks.zip",
+    "version": "0.0.1",
+    "download_url": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.1/holdmyblocks.zip",
     "requires": "6.2",
     "tested": "6.3",
     "requires_php": "8.0",
     "sections": {
         "description": "Ensemble de blocs",
         "installation": "Click the activate button and that's it.",
-        "changelog": "<h4>1.0 –  1 august 2021</h4><ul><li>Bug fixes.</li><li>Initital release.</li></ul>"
+        "changelog": "<p><strong>Full Changelog</strong>: <a href='https://github.com/MLNOP/holdmyblocks/commits/0.0.1'>https://github.com/MLNOP/holdmyblocks/commits/0.0.1</a></p>"
     },
     "banners": {
-        "low": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.2/banner-772x250.jpg",
-        "high": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.2/banner-1544x500.jpg"
+        "low": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.1/banner-772x250.jpg",
+        "high": "https://github.com/MLNOP/holdmyblocks/releases/download/0.0.1/banner-1544x500.jpg"
     }
 }
