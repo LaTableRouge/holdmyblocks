@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/MLNOP/holdmyblocks
  * Description: Ensemble de blocs
  * Tags: blocks, bongo-cat, plugin
- * Author: The WordPress Contributors & VDIANA DEV
+ * Author: MLNOP
  * Author URI: https://mlnop.fr/
  * Requires at least: 6.2
  * Tested up to: 6.3
@@ -34,8 +34,10 @@ Copyright 2023 Monzilla Media. All rights reserved.
 */
 
 global $wpdb;
+if (!function_exists('get_plugin_data')) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
 
-define('HMB_BLOCKS_VERSION', '0.0.1');
 define('HMB_BLOCKS_IS_PROD', false);
 define('HMB_BLOCKS_ENABLE_BO', true);
 define('HMB_BLOCKS_PATH', plugin_dir_path(__FILE__));

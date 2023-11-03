@@ -472,23 +472,11 @@ mix.browserSync({
  |--------------------------------------------------------------------------
  |
  | Remove var_dumps();
- | Remove @dump()
- | Remove @dd()
  |
  */
 if (chore === 'clean' || chore === 'all') {
   if (fileToClean.length) {
     mix
-      .replaceInFile({
-        files: fileToClean,
-        from: /@dd\(([^)]+)\)/g,
-        to: ''
-      })
-      .replaceInFile({
-        files: fileToClean,
-        from: /@dump\(([^)]+)\)/g,
-        to: ''
-      })
       .replaceInFile({
         files: fileToClean,
         from: /\bvar_dump\(([^)]+)\);/g,
@@ -510,7 +498,6 @@ if (filesToCopy.length) {
     mix.copy(file.input, file.output)
   })
 }
-
 
 /*
  |--------------------------------------------------------------------------

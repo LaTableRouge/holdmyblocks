@@ -2,6 +2,8 @@
 
 function hmb_blocks_enqueue_admin_assets($hook) {
     if ($hook === 'holdmyblocks/templates/admin.php') {
+        $pluginDatas = get_plugin_data(HMB_BLOCKS_PATH . HMB_BLOCKS_BASE_NAME . '.php');
+
         $scriptFiles = [
             'admin'
         ];
@@ -16,7 +18,7 @@ function hmb_blocks_enqueue_admin_assets($hook) {
                 $fileSlug,
                 $filePath,
                 ['jquery', 'wp-i18n'], // Libraries to use
-                HMB_BLOCKS_VERSION,
+                $pluginDatas['Version'],
                 [
                     'in_footer' => true,
                     'strategy' => 'defer'
@@ -59,7 +61,7 @@ function hmb_blocks_enqueue_admin_assets($hook) {
                 $fileSlug,
                 $filePath,
                 [],
-                HMB_BLOCKS_VERSION
+                $pluginDatas['Version']
             );
         }
     }
@@ -67,6 +69,7 @@ function hmb_blocks_enqueue_admin_assets($hook) {
 add_action('admin_enqueue_scripts', 'hmb_blocks_enqueue_admin_assets');
 
 function hmb_blocks_enqueue_editor_assets($hook) {
+    $pluginDatas = get_plugin_data(HMB_BLOCKS_PATH . HMB_BLOCKS_BASE_NAME . '.php');
 
     $scriptFiles = [
         'editor'
@@ -83,7 +86,7 @@ function hmb_blocks_enqueue_editor_assets($hook) {
             $fileSlug,
             $filePath,
             ['jquery', 'wp-i18n', 'wp-blocks'], // Libraries to use
-            HMB_BLOCKS_VERSION,
+            $pluginDatas['Version'],
             [
                 'in_footer' => true,
                 'strategy' => 'defer'
