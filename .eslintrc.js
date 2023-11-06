@@ -34,6 +34,8 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'no-console': 'warn',
-    'operator-linebreak': ['error', 'before']
+    'operator-linebreak': ['error', 'before'],
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off'
   }
 }

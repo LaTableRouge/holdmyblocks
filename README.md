@@ -100,15 +100,19 @@
 - Lancer les build du plugin & des blocks
 - Lancer la commande `plugin-zip`
 
-
-*Note : une release du plugin est automatiquement générée lors de la création d'un tag sur [github](https://github.com/MLNOP/holdmyblocks/releases)*
-
+*Note : une release du plugin est automatiquement générée lors de la création d'un tag sur [github](https://github.com/MLNOP/holdmyblocks/releases), ces releases sont utilisées pour mettre à jour le plugin dans le back-office de Wordpress*
 
 ## Roadmap
+
 - [x] React Bongo cat bloc
 - [x] Mises à jour automatiques
 - [ ] Back-office style
 - [ ] Traductions (anglais)
 - [ ] ACF bloc exemple ([branche](https://github.com/MLNOP/holdmyblocks/tree/major/acfBlocks))
+- [ ] React cartographie bloc
 - [ ] React carousel bloc
 - [ ] React modale bloc ([branche](https://github.com/MLNOP/holdmyblocks/tree/minor/reactBlockModale))
+
+## Credits
+
+- [Self hosted updates](https://rudrastyh.com/wordpress/self-hosted-plugin-update.html)

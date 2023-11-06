@@ -1,7 +1,7 @@
 <article class="wrap hmb-blocks">
     <header class="hmb-blocks__header">
         <div class="img-wrapper">
-            <img src="<?php echo HMB_BLOCKS_URL . '/build/img/bg.webp'; ?>" alt="background picture">
+            <img src="<?php echo HMB_BLOCKS_URL . HMB_PICTURE_FOLDER . '/bg.webp'; ?>" alt="background picture">
         </div>
         <div class="text-wrapper">
             <h1><?php _e('Hold my blocks blocs configuration', 'hmb-blocks'); ?></h1>
