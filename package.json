@@ -75,22 +75,22 @@
   ],
   "lint-staged": {
     "assets/scss/**/*.scss": [
-      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix",
-      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
-      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix"
+      "npx stylelint --allow-empty-input --fix",
+      "npx prettier --no-error-on-unmatched-pattern --write",
+      "npx stylelint --allow-empty-input --fix"
     ],
     "components/blocks/**/src/**/*.scss": [
-      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix",
-      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
-      "npx stylelint --config .stylelintrc.json --allow-empty-input --ignore-path .stylelintignore --fix"
+      "npx stylelint --allow-empty-input --fix",
+      "npx prettier --no-error-on-unmatched-pattern --write",
+      "npx stylelint --allow-empty-input --fix"
     ],
     "assets/js/**/*.js": [
-      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
-      "npx eslint --config .eslintrc.js --no-error-on-unmatched-pattern --ignore-path .eslintignore --fix"
+      "npx prettier --no-error-on-unmatched-pattern --write",
+      "npx eslint --no-error-on-unmatched-pattern --fix"
     ],
     "components/blocks/**/src/**/*.js": [
-      "npx prettier --config .prettierrc.js --no-error-on-unmatched-pattern --ignore-path .prettierignore --write",
-      "npx eslint --config .eslintrc.js --no-error-on-unmatched-pattern --ignore-path .eslintignore --fix"
+      "npx prettier --no-error-on-unmatched-pattern --write",
+      "npx eslint --no-error-on-unmatched-pattern --fix"
     ]
   },
   "browserslist": [
