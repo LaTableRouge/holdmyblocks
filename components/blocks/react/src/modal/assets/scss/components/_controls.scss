@@ -9,7 +9,7 @@
 
   .control-wrapper__section {
     &.is-opened {
-      padding-right: 30px;
+      // padding-right: 30px;
 
       & > .components-panel__body-title {
         background: #f0f0f0;
@@ -30,5 +30,4 @@
   @import './control/notification';
   @import './control/component';
   @import './control/breakpoint';
-  @import './control/color-picker';
 }

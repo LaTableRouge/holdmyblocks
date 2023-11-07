@@ -7,6 +7,23 @@ window.addEventListener('DOMContentLoaded', () => {
     containers.forEach((container) => {
       container.classList.add('is-init')
 
+      const storageType = container.dataset.storage
+
+      // Hide la modale si elle a déjà été ouverte
+      let storage = false
+      if (storageType === 'local') {
+        storage = localStorage.getItem(container.id)
+      } else if (storageType === 'session') {
+        storage = sessionStorage.getItem(container.id)
+      }
+      if (storage) {
+        container.style.display = 'none'
+        container.classList.remove('is-displayed')
+        document.documentElement.classList.remove('hmb-modal-deployed')
+
+        return
+      }
+
       // Close the modal
       const closeElements = container.querySelectorAll('.js-close-modal')
       if (closeElements.length) {
@@ -16,6 +33,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
             container.classList.remove('is-displayed')
             document.documentElement.classList.remove('hmb-modal-deployed')
+
+            if (storageType === 'local') {
+              storage = localStorage.setItem(container.id, 'opened')
+            } else if (storageType === 'session') {
+              storage = sessionStorage.setItem(container.id, 'opened')
+            }
           })
         })
       }

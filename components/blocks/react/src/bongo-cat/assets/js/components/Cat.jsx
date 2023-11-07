@@ -1,6 +1,6 @@
 export default function Cat() {
-	return (
-		<svg
+  return (
+    <svg
             id="bongo-cat"
             className="bongocat animation-pause"
             xmlns="http://www.w3.org/2000/svg"
@@ -374,5 +374,5 @@ export default function Cat() {
                 </g>
             </g>
         </svg>
-	)
+  )
 }

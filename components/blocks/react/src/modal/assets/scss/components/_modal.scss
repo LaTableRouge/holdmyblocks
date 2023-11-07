@@ -13,11 +13,10 @@
   top: 0;
   left: 0;
   width: 100vw;
-  max-width: initial !important;
+  max-width: 100% !important;
   height: 100vh;
   height: 100svh;
   margin: 0 !important;
-  padding: var(--hmb-modal-padding);
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
   pointer-events: none;
@@ -25,6 +24,7 @@
   .hmb-modal__inner-wrapper {
     display: grid;
     place-items: center;
+    margin: var(--hmb-modal-padding);
   }
 
   .hmb-modal__overlay {

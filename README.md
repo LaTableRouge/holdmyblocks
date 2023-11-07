@@ -112,6 +112,8 @@
 - [ ] React cartographie bloc
 - [ ] React carousel bloc
 - [ ] React modale bloc ([branche](https://github.com/MLNOP/holdmyblocks/tree/minor/reactBlockModale))
+    - [x] Fonctionnalités
+    - [ ] Styles
 
 ## Credits
 

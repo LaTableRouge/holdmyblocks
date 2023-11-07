@@ -2,11 +2,16 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "hmb/modal",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "title": "Modale",
   "category": "hmb-blocks",
   "icon": "block-default",
   "description": "Un bloc qui permet d'afficher une modale.",
+  "textdomain": "hmb-blocks",
+  "keywords": [
+    "hmb",
+    "modale"
+  ],
   "supports": {
     "html": false
   },
@@ -54,6 +59,10 @@
       "type": "string",
       "default": ""
     },
+    "storage": {
+      "type": "string",
+      "default": "local"
+    },
     "breakpointsEnable": {
       "type": "boolean",
       "default": false
@@ -63,11 +72,6 @@
       "default": []
     }
   },
-  "textdomain": "hmb-blocks",
-  "keywords": [
-    "hmb",
-    "modale"
-  ],
   "viewScript": "file:./assets/view.js",
   "editorScript": "file:./assets/index.jsx",
   "editorStyle": "file:./assets/index.css",

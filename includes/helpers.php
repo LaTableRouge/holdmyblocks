@@ -41,7 +41,7 @@ function hmb_blocks_get_db_blocks() {
 function hmb_blocks_get_enabled_status($scope, $slug) {
     $blocks = hmb_blocks_get_db_blocks();
 
-    if (!empty($blocks)) {
+    if (!empty($blocks) && isset($blocks[$scope][$slug])) {
         return $blocks[$scope][$slug]['enabled'];
     }
 }

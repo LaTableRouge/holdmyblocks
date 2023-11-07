@@ -7,6 +7,13 @@
   "category": "hmb-blocks",
   "icon": "block-default",
   "description": "Un bloc qui permet d'afficher un bongo cat.",
+  "textdomain": "hmb-blocks",
+  "keywords": [
+    "hmb",
+    "bongo",
+    "cat",
+    "bongo-cat"
+  ],
   "supports": {
     "html": false,
     "anchor": true,
@@ -24,13 +31,6 @@
       "default": true
     }
   },
-  "textdomain": "hmb-blocks",
-  "keywords": [
-    "hmb",
-    "bongo",
-    "cat",
-    "bongo-cat"
-  ],
   "viewScript": "file:./assets/view.js",
   "editorScript": "file:./assets/index.jsx",
   "editorStyle": "file:./assets/index.css",

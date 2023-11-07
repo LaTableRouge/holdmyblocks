@@ -27,16 +27,16 @@ import Save from './js/save'
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType(metadata.name, {
-    // icon: {
-    //     src: svgpath
-    // },
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
+  // icon: {
+  //     src: svgpath
+  // },
+  /**
+   * @see ./edit.js
+   */
+  edit: Edit,
 
-	/**
-	 * @see ./save.js
-	 */
-	save: Save
+  /**
+   * @see ./save.js
+   */
+  save: Save
 })
