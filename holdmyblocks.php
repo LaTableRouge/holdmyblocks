@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Hold my blocks
  * Plugin URI: https://github.com/MLNOP/holdmyblocks
- * Description: Ensemble de blocs
+ * Description: Ensemble de blocs Gutenberg pour Wordpress
  * Tags: blocks, bongo-cat, plugin
  * Author: MLNOP
  * Author URI: https://mlnop.fr/

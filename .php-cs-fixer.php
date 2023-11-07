@@ -116,6 +116,9 @@ $rules = [
 $finder = Finder::create()
     ->name('*.php')
     ->notName('*.blade.php')
+    ->notPath([
+        'build/'
+    ])
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 

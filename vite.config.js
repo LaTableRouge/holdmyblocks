@@ -6,6 +6,8 @@ const { resolve } = require('path')
 const { stringReplaceOpenAndWrite, stringReplace } = require('@mlnop/string-replace')
 
 const chore = process.env.npm_config_chore
+const actualVersion = process.env.npm_package_version
+const newVersion = process.env.npm_config_newversion
 const isProduction = process.env.NODE_ENV === 'production'
 
 /*
@@ -77,7 +79,7 @@ const entryFiles = [
  */
 const beautifyObject = {
   js_lint: {
-    config: `npx eslint --config ${resolve(__dirname, '.eslintrc.js')} --no-error-on-unmatched-pattern --ignore-path ${resolve(__dirname, '.eslintignore')} --fix`,
+    config: 'npx eslint --no-error-on-unmatched-pattern --fix',
     files: [
       ...Array.from(new Set(entryFiles.flatMap(element => element.scripts.flatMap(script => script.input)))),
       'components/blocks',
@@ -85,7 +87,7 @@ const beautifyObject = {
     ]
   },
   js_prettier: {
-    config: `npx prettier --config ${resolve(__dirname, '.prettierrc.js')} --no-error-on-unmatched-pattern --ignore-path ${resolve(__dirname, '.prettierignore')} --write`,
+    config: 'npx prettier --no-error-on-unmatched-pattern --write',
     files: [
       ...Array.from(new Set(entryFiles.flatMap(element => element.scripts.flatMap(script => script.input)))),
       'components/blocks',
@@ -93,7 +95,7 @@ const beautifyObject = {
     ]
   },
   scss_lint: {
-    config: `npx stylelint --config ${resolve(__dirname, '.stylelintrc.json')} --allow-empty-input --ignore-path ${resolve(__dirname, '.stylelintignore')} --fix`,
+    config: 'npx stylelint --allow-empty-input --fix',
     files: [
       ...Array.from(new Set(entryFiles.flatMap(element => element.styles.flatMap(style => style.input)))),
       'components/blocks',
@@ -101,7 +103,7 @@ const beautifyObject = {
     ]
   },
   scss_prettier: {
-    config: `npx prettier --config ${resolve(__dirname, '.prettierrc.js')} --no-error-on-unmatched-pattern --ignore-path ${resolve(__dirname, '.prettierignore')} --write`,
+    config: 'npx prettier --no-error-on-unmatched-pattern --write',
     files: [
       ...Array.from(new Set(entryFiles.flatMap(element => element.styles.flatMap(style => style.input)))),
       'components/blocks',
@@ -134,20 +136,64 @@ const beautifyObject = {
  |  ]
  |
  */
-const filesToEdit = [
-  {
-    filePath: [
-      resolve(__dirname, 'includes/'),
-      resolve(__dirname, 'holdmyblocks.php')
-    ],
-    replace: [
-      {
-        from: /\bvar_dump\(([^)]+)\);/g,
-        to: ''
-      }
-    ]
+const filesToEdit = []
+if (chore === 'version') {
+  if (actualVersion && newVersion) {
+    const isGreaterThanOldVersion = newVersion.localeCompare(actualVersion, undefined, { numeric: true, sensitivity: 'base' })
+    if (isGreaterThanOldVersion === 1) {
+      filesToEdit.push(
+        {
+          filePath: [
+            resolve(__dirname, 'package.json'),
+            resolve(__dirname, 'update/info.json'),
+            resolve(__dirname, 'holdmyblocks.php')
+          ],
+          replace: [
+            {
+              from: /"version":\s?"[0-9]+.[0-9]+.[0-9]+"/g,
+              to: `"version": "${newVersion}"`
+            },
+            {
+              from: /Version:\s?[0-9]+.[0-9]+.[0-9]+/g,
+              to: `Version: ${newVersion}`
+            },
+            {
+              from: /Stable tag:\s?[0-9]+.[0-9]+.[0-9]+/g,
+              to: `Stable tag: ${newVersion}`
+            },
+            {
+              from: /\/commits\/[0-9]+.[0-9]+.[0-9]+/g,
+              to: `/commits/${newVersion}`
+            },
+            {
+              from: /\/download\/[0-9]+.[0-9]+.[0-9]+/g,
+              to: `/download/${newVersion}`
+            }
+          ]
+        }
+      )
+    } else {
+      console.warn('The new version is not greater than the old one')
+    }
+  } else {
+    console.warn('No version number specified please add a --newversion=x.x.x to your command line')
   }
-]
+} else {
+  filesToEdit.push(
+    {
+      filePath: [
+        resolve(__dirname, 'includes/'),
+        resolve(__dirname, 'holdmyblocks.php')
+      ],
+      replace: [
+        {
+          from: /\bvar_dump\(([^)]+)\);/g,
+          to: ''
+        }
+      ]
+    }
+  )
+}
 
 /*
  |--------------------------------------------------------------------------
@@ -241,7 +287,6 @@ if (chore !== 'ci') {
         }
       ]
     )
-
   } else {
     stringReplaceOpenAndWrite(
       resolve(__dirname, 'holdmyblocks.php'),
@@ -285,7 +330,7 @@ if (chore !== 'ci') {
 export default defineConfig({
   base: isProduction ? './' : `/wp-content/plugins/${pluginName}`, // Url to apply refresh
   plugins: [
-    isProduction && chore === 'all'
+    isProduction
       ? stringReplace(filesToEdit)
       : false,
 
