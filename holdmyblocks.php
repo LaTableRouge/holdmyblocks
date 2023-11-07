@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Hold my blocks
  * Plugin URI: https://github.com/MLNOP/holdmyblocks
- * Description: Ensemble de blocs
+ * Description: Ensemble de blocs Gutenberg pour Wordpress
  * Tags: blocks, bongo-cat, plugin
  * Author: MLNOP
  * Author URI: https://mlnop.fr/
@@ -38,7 +38,7 @@ if (!function_exists('get_plugin_data')) {
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
-define('HMB_BLOCKS_IS_PROD', true);
+define('HMB_VITE_DEVELOPMENT', false);
 define('HMB_BLOCKS_ENABLE_BO', true);
 define('HMB_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('HMB_BLOCKS_URL', plugin_dir_url(__FILE__));
@@ -65,9 +65,11 @@ register_uninstall_hook(__FILE__, 'hmb_blocks_delete_table');
 * Enqueue les assets du plugin (hors blocks)
 * Functions ajax
 */
+require HMB_BLOCKS_PATH . 'includes/vite.php';
+hmb_vite_enqueue_script('assets/js/admin.js', 'admin_enqueue_scripts', 'admin_footer');
+hmb_vite_enqueue_script('assets/js/editor.js', 'enqueue_block_editor_assets');
 require HMB_BLOCKS_PATH . 'includes/helpers.php';
 require HMB_BLOCKS_PATH . 'includes/load-textdomain.php';
-require HMB_BLOCKS_PATH . 'includes/enqueue-assets.php';
 require HMB_BLOCKS_PATH . 'includes/update-checker.php';
 require HMB_BLOCKS_PATH . 'includes/ajax/table-update.php';
 

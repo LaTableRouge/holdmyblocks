@@ -1,20 +1,70 @@
 {
   "name": "holdmyblocks",
   "version": "0.0.1",
-  "description": "## VHosts",
-  "main": "webpack.mix.js",
+  "description": "Ensemble de blocs Gutenberg pour Wordpress",
+  "main": "vite.config.js",
+  "keywords": [
+    "Wordpress plugin",
+    "Gutenberg blocks",
+    "blocks",
+    "bongo-cat"
+  ],
+  "author": "VDIANA DEV",
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "repository": {
+    "url": "https://github.com/MLNOP/holdmyblocks"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:plugin": "mix",
-    "watch:plugin": "mix watch",
-    "prod:plugin": "mix --production",
-    "build:plugin": "npm run prod:plugin --chore=all --state=build && npm run dev:plugin --state=build",
+    "watch": "vite",
+    "prod": "vite build",
+    "build": "npm run prod --chore=all",
     "watch:react-blocks": "wp-scripts start --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
     "build:react-blocks": "wp-scripts build --webpack-src-dir=components/blocks/react/src --output-path=components/blocks/react/build",
-    "plugin-zip": "wp-scripts plugin-zip"
+    "plugin-zip": "wp-scripts plugin-zip",
+    "version-update": "npm run prod --chore=version",
+    "prepare": "husky install && composer install && npm run prod && npm run build:react-blocks"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "@mlnop/string-replace": "^1.0.5",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@wordpress/scripts": "^26.16.0",
+    "autoprefixer": "^10.4.16",
+    "browserslist": "^4.22.1",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "git-precommit-checks": "^3.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "stylelint": "^15.11.0",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
+    "validate-branch-name": "^1.3.0",
+    "vite": "^4.5.0",
+    "vite-plugin-run": "^0.4.1",
+    "vite-plugin-static-copy": "^0.17.0"
+  },
+  "dependencies": {
+    "notyf": "^3.10.0"
   },
   "files": [
-    "!webpack.mix.js",
+    "!vite.config.js",
     "holdmyblocks.php",
     "lang/",
     "build/",
@@ -43,50 +93,185 @@
       "npx eslint --config .eslintrc.js --no-error-on-unmatched-pattern --ignore-path .eslintignore --fix"
     ]
   },
-  "devDependencies": {
-    "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@wordpress/dom-ready": "^3.42.0",
-    "@wordpress/scripts": "^26.13.0",
-    "browser-sync": "^2.29.3",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "browserslist": "^4.22.1",
-    "eslint": "^8.50.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-n": "^16.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-unused-imports": "^3.0.0",
-    "git-precommit-checks": "^3.1.0",
-    "husky": "^8.0.3",
-    "laravel-mix": "^6.0.49",
-    "laravel-mix-replace-in-file": "^0.1.0",
-    "laravel-mix-webp": "^0.1.3",
-    "lint-staged": "^14.0.1",
-    "node-css-mqpacker": "^9.0.0",
-    "prettier": "^3.0.3",
-    "replace-in-file": "^7.0.1",
-    "sass": "^1.68.0",
-    "sass-loader": "^13.3.2",
-    "standard": "^17.1.0",
-    "stylelint": "^15.10.3",
-    "stylelint-config-property-sort-order-smacss": "^9.1.0",
-    "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard": "^34.0.0",
-    "stylelint-order": "^6.0.3",
-    "validate-branch-name": "^1.3.0",
-    "webpack-shell-plugin-next": "^2.3.1",
-    "@mlnop/string-replace": "^1.0.5"
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "safari 5",
+    "opera 12.1",
+    "ios 6",
+    "android 4"
+  ],
+  "prettier": {
+    "trailingComma": "none",
+    "printWidth": 180,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": false,
+    "bracketSpacing": true
   },
-  "keywords": [],
-  "author": "VDIANA DEV",
-  "license": "(╯°□°）╯︵ ┻━┻",
-  "dependencies": {
-    "notyf": "^3.10.0",
-    "swiper": "^10.1.0"
-  }
+  "prettierIgnore": [],
+  "stylelint": {
+    "extends": [
+      "stylelint-config-property-sort-order-smacss",
+      "stylelint-config-sass-guidelines"
+    ],
+    "plugins": [
+      "stylelint-order"
+    ],
+    "rules": {
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless"
+          ],
+          "ignore": [
+            "after-comment",
+            "first-nested"
+          ],
+          "ignoreAtRules": [
+            "else",
+            "if"
+          ],
+          "severity": "warning"
+        }
+      ],
+      "block-no-empty": true,
+      "color-named": null,
+      "custom-property-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "after-custom-property"
+          ],
+          "ignore": [
+            "after-comment",
+            "first-nested",
+            "inside-single-line-block"
+          ],
+          "severity": "warning"
+        }
+      ],
+      "declaration-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "after-declaration"
+          ],
+          "ignore": [
+            "after-comment",
+            "first-nested",
+            "inside-single-line-block"
+          ],
+          "severity": "warning"
+        }
+      ],
+      "declaration-no-important": [
+        true,
+        {
+          "message": "Do you really need this to be important ? 🤔",
+          "severity": "warning"
+        }
+      ],
+      "declaration-property-value-disallowed-list": null,
+      "max-nesting-depth": null,
+      "order/properties-alphabetical-order": null,
+      "property-no-unknown": null,
+      "property-no-vendor-prefix": null,
+      "rule-empty-line-before": [
+        "always",
+        {
+          "ignore": [
+            "after-comment",
+            "first-nested"
+          ],
+          "severity": "warning"
+        }
+      ],
+      "scss/at-extend-no-missing-placeholder": null,
+      "scss/at-function-pattern": null,
+      "scss/at-import-partial-extension-blacklist": null,
+      "scss/at-mixin-pattern": null,
+      "scss/dollar-variable-pattern": null,
+      "scss/no-global-function-names": null,
+      "scss/percent-placeholder-pattern": null,
+      "scss/selector-no-redundant-nesting-selector": null,
+      "selector-class-pattern": null,
+      "selector-disallowed-list": [
+        "/\\*/",
+        {
+          "message": "The universal selector (*) is known to be slow 🦥",
+          "severity": "warning"
+        }
+      ],
+      "selector-max-compound-selectors": null,
+      "selector-max-id": null,
+      "selector-no-qualifying-type": null,
+      "shorthand-property-no-redundant-values": null,
+      "value-no-vendor-prefix": null
+    }
+  },
+  "stylelintIgnore": [
+    "assets/scss/abstract/**/*.scss"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "standard",
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "sourceType": "module"
+    },
+    "globals": {
+      "wp": true,
+      "jQuery": true,
+      "block_params": true,
+      "plugin_params": true
+    },
+    "plugins": [
+      "unused-imports",
+      "simple-import-sort"
+    ],
+    "rules": {
+      "object-shorthand": 0,
+      "space-before-function-paren": "off",
+      "comma-dangle": [
+        "error",
+        "only-multiline"
+      ],
+      "generator-star-spacing": [
+        "error",
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "unused-imports/no-unused-imports": "warn",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "no-console": "warn",
+      "operator-linebreak": [
+        "error",
+        "before"
+      ],
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off"
+    }
+  },
+  "eslintIgnore": [
+    "build/"
+  ]
 }

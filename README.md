@@ -109,6 +109,7 @@
 - [ ] Back-office style
 - [ ] Traductions (anglais)
 - [ ] ACF bloc exemple ([branche](https://github.com/MLNOP/holdmyblocks/tree/major/acfBlocks))
+- [ ] React cartographie bloc
 - [ ] React carousel bloc
 - [ ] React modale bloc ([branche](https://github.com/MLNOP/holdmyblocks/tree/minor/reactBlockModale))
 
